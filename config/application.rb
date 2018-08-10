@@ -15,5 +15,14 @@ module EbookPavilion
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    #scaffold
+    #orm：设置使用哪个 ORM。默认为 false，使用 Active Record。
+    #template_engine：设置使用哪个模板引擎，例如 ERB 或 Haml，默认为 :erb。
+    config.generators do |g|
+      g.orm            				 false
+      g.template_engine				 :my_templates
+    end
+
   end
 end
