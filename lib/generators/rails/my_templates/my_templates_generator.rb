@@ -20,6 +20,7 @@
 
     class_option :migration, type: :boolean, default: true 
     class_option :timestamps, type: :boolean, default: true
+    class_option :soft_delete, type: :boolean, default: true
     class_option :parent, type: :string, desc: "The parent class for the generated model"
     class_option :indexes, type: :boolean, default: true, desc: "Add indexes for references and belongs_to columns"
     class_option :primary_key_type, type: :string, desc: "The type for primary key"
@@ -41,9 +42,9 @@
       end
     end
 
-    def create_controller_files
-      template "controller/controller.rb", File.join("app/controllers", controller_class_path, "#{controller_file_name}_controller.rb")
-    end
+    # def create_controller_files
+    #   template "controller/controller.rb", File.join("app/controllers", controller_class_path, "#{controller_file_name}_controller.rb")
+    # end
 
     def create_migration_file
       return unless options[:migration] && options[:parent].nil?

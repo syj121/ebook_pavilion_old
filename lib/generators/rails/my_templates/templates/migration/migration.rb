@@ -10,6 +10,10 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
       t.<%= attribute.type %> :<%= attribute.name %><%= attribute.inject_options %>
 <% end -%>
 <% end -%>
+<% if options[:soft_delete] %>
+      t.boolean :is_deleted, default: false
+      t.datetime :deleted_at
+<% end -%>
 <% if options[:timestamps] %>
       t.timestamps
 <% end -%>
@@ -20,5 +24,8 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
 <% attributes_with_index.each do |attribute| -%>
     add_index :<%= table_name %>, :<%= attribute.index_name %><%= attribute.inject_index_options %>
 <% end -%>
+<% if options[:soft_delete] %>
+    add_index: <%=  table_name%>, :is_deleted
+<% end%>
   end
 end
