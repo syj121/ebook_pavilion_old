@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>云书阁</title>
+    <meta name="description" content="云书阁">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="assets/background/echarts.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body data-type="index">
+    <header class="am-topbar am-topbar-inverse admin-header">
+      <%= render "shared/header"%>
+    </header>
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+
+      <div class="tpl-left-nav tpl-left-nav-hover">
+       <%= render "shared/left_menus"%>
+      </div>
+
+      <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            Amaze UI 首页组件
+        </div>
+        <ol class="am-breadcrumb">
+            <li><a href="#" class="am-icon-home">首页</a></li>
+            <li><a href="#">分类</a></li>
+            <li class="am-active">内容</li>
+        </ol>
+        <div class="tpl-content-scope">
+          <div class="note note-info">
+            <h3>Amaze UI 为移动而生
+              <span class="close" data-close="note"></span>
+            </h3>
+            <p> Amaze UI 含近 20 个 CSS 组件、20 余 JS 组件，更有多个包含不同主题的 Web 组件，可快速构建界面出色、体验优秀的跨屏页面，大幅提升开发效率。</p>
+            <p><span class="label label-danger">提示:</span> Amaze UI 关注中文排版，根据用户代理调整字体，实现更好的中文排版效果。
+            </p>
+          </div>
+        </div>
+
+
+
+        <%= yield%>
+      </div>
+
+
+    <script src="assets/background/jquery.min.js"></script>
+    <script src="assets/background/amazeui.min.js"></script>
+    <script src="assets/background/iscroll.js"></script>
+    <script src="assets/background/app.js"></script>
+</body>
+
+</html>
