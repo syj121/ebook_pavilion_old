@@ -61,4 +61,5 @@ Rails.application.configure do
 
   #新增
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.assets.digest = false
 end

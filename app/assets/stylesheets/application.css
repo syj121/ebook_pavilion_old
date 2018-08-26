@@ -10,6 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ 
+ *= require background/amazeui.min
+ *= require background/admin
+ *= require background/app
+
+ * 最后写这两行，否则不能自定义加载顺序
  *= require_tree .
  *= require_self
  */

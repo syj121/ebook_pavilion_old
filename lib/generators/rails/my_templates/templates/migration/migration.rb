@@ -11,9 +11,9 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
 <% end -%>
 <% end -%>
 <% if options[:soft_delete] %>
-      t.boolean :is_deleted, default: false
-      t.datetime :deleted_at
-<% end -%>
+      t.datetime :deleted_at, comment: '删除时间'
+      t.boolean  :is_deleted,default: false,comment: '0未删除 1删除'
+<% end %>
 <% if options[:timestamps] %>
       t.timestamps
 <% end -%>

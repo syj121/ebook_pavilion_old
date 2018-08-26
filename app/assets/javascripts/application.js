@@ -13,4 +13,12 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+
+//= require background/jquery.min
+//= require background/echarts.min
+//= require background/amazeui.min
+//= require background/iscroll
+//= require background/app
+
+
+
