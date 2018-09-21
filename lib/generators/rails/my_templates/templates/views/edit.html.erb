@@ -1,0 +1,6 @@
+<!-- 标题 -->
+<%%= content_for :title, "修改表单"%>
+<!-- 子标题 -->
+<%%= content_for :subtitle, ""%>
+<!-- 页面渲染 -->
+<%%= render 'core/shared_templates/new_edit', <%= singular_table_name %>: @<%= singular_table_name %> %>

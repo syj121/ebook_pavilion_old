@@ -25,7 +25,7 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
     add_index :<%= table_name %>, :<%= attribute.index_name %><%= attribute.inject_index_options %>
 <% end -%>
 <% if options[:soft_delete] %>
-    add_index: <%=  table_name%>, :is_deleted
+    add_index :<%=  table_name%>, :is_deleted
 <% end%>
   end
 end

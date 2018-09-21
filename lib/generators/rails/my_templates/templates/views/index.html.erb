@@ -1,0 +1,18 @@
+<!-- 列表标题 -->
+<%% subtitles = <%= attributes.map(&:column_name)%>%>
+<!-- 属性 -->
+<!-- 按钮 simple_btns(column, {bths: [链接1， 链接2]})   -->
+<!-- 例如 simple_btns(column, {btns: des_link}) -->
+<!-- 不传链接时，默认添加“增删改” -->
+<%% column_block = lambda { |column|
+   [
+   <%  attributes.each do |att|%>
+     column.<%= att.column_name%>,
+   <% end -%>
+   simple_btns(column)
+   ]
+}
+%>
+
+<%%= render 'core/shared_templates/index', subtitles: subtitles, column_block: column_block, list_btns: index_btns("<%= singular_table_name%>"),q: @q %>
+

@@ -1,0 +1,28 @@
+<div class="tpl-portlet-components">
+  <div class="portlet-title">
+    <div class="caption font-green bold">
+      <span class="am-icon-code"> 表单</span>
+    </div>
+    <div class="tpl-portlet-input tpl-fz-ml">
+      <div class="portlet-input input-small input-inline">
+        <div class="input-icon right"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+      <div class="am-u-sm-12 am-u-md-9">
+        
+        <%= simple_form_for [:background, @menu] , html: {class: 'valid_engine '} do |form| %>
+          <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
+          <%= form.input :show,input_html: {class: 'validate[required]'},required: true %>
+          <%= form.input :order_num,input_html: {class: 'validate[required]'},required: true %>
+          <%= form.input :parent_id, collection: Menu.pluck(:name, :id)%>
+          <%= render '/shared/form_button',f: form, back: (background_menus_path) %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

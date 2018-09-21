@@ -1,0 +1,21 @@
+<%= search_form_for q, :url => menus_path, :html => {:method => :get, :class => "well form-inline form-search"}  do |f| %>
+    <div class='form-group prb30'>
+      <%= f.label :name%>
+      <%= f.text_field :name_cont, class: "form-control" %>
+    </div>
+    <div class='form-group prb30'>
+      <%= f.label :order_num%>
+      <%= f.text_field :order_num_cont, class: "form-control" %>
+    </div>
+    <div class='form-group prb30'>
+      <%= f.label :show%>
+      <%= f.text_field :show_cont, class: "form-control" %>
+    </div>
+
+  <div class='form-group prb30'>
+    <%= render "/core/shared/search_bottom", :f => f %>
+    <%= link_to "导出", export_path(object_class: "Core::EntScale", back: request.fullpath, q: params[:q].try(:permit!)), class: "ml8 btn btn-info"%>
+  </div>
+<% end %>
+
+

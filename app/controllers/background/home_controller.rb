@@ -1,3 +1,3 @@
-class Background::HomeController < ApplicationController
-	layout "background"
+class Background::HomeController < HighlandController
+	
 end

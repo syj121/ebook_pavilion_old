@@ -1,0 +1,6 @@
+<%%= simple_form_for @<%= singular_table_name %> , html: {class: 'valid_engine'} do |form| %>
+  <%- attributes.each do |attribute| -%>
+      <%%= form.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>,input_html: {class: 'validate[required]'},required: true %>
+  <%- end -%>
+  <%%= render 'core/shared/form_button',f: form, back: (<%= singular_table_name.pluralize%>_path) %>
+<%% end %>

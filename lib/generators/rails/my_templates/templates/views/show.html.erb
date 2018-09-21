@@ -1,0 +1,16 @@
+
+<!-- 标题 -->
+<%%= content_for :title, "查看表单"%>
+<!-- 子标题 -->
+<%%= content_for :subtitle, ""%>
+<!-- 列表 -->
+<%% content_for :columns do %>
+   <%  attributes.each do |att|%>
+    <%%= tr_two_th_td(@<%= singular_table_name%>, :<%= att.column_name%>) %>
+  <% end -%>
+<%% end -%>
+
+
+<!-- 页面渲染 -->
+<%%= render 'core/shared_templates/show'%>
+

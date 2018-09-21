@@ -18,4 +18,5 @@
  * 最后写这两行，否则不能自定义加载顺序
  *= require_tree .
  *= require_self
+ *= require common
  */

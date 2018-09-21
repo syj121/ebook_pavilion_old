@@ -1,0 +1,15 @@
+<%%= search_form_for q, :url => <%= singular_table_name.pluralize%>_path, :html => {:method => :get, :class => "well form-inline form-search"}  do |f| %>
+  <%- attributes.each do |attribute| -%>
+    <div class='form-group prb30'>
+      <%%= f.label :<%= attribute.name%>%>
+      <%%= f.text_field :<%= attribute.name%>_cont, class: "form-control" %>
+    </div>
+  <%- end -%>
+
+  <div class='form-group prb30'>
+    <%%= render "/core/shared/search_bottom", :f => f %>
+    <%%= link_to "导出", export_path(object_class: "Core::EntScale", back: request.fullpath, q: params[:q].try(:permit!)), class: "ml8 btn btn-info"%>
+  </div>
+<%% end %>
+
+

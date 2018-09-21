@@ -320,6 +320,10 @@ ul {
   background: #fff;
 }
 
+.table-main a {
+  background: #fff;
+}
+
 .table-check {
   width: 30px;
 }

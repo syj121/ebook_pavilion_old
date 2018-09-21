@@ -65,3 +65,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #新增的gem
 gem 'mysql2'
 gem "devise"
+gem "pundit"
+gem 'ransack'
+gem "kaminari"
+gem 'simple_form'
+gem "closure_tree"
