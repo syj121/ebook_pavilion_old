@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 2018_09_19_094523) do
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "order_num"
-    t.boolean "show"
-    t.integer "parent_id"
+    t.string "name", null: false, comment: "菜单名"
+    t.integer "order_num", default: 1, comment: "排序"
+    t.boolean "show", default: true, comment: "是否展示"
+    t.integer "parent_id", comment: "上级父id"
+    t.string "url", default: "", comment: "菜单地址"
     t.datetime "deleted_at", comment: "删除时间"
     t.boolean "is_deleted", default: false, comment: "0未删除 1删除"
     t.datetime "created_at", null: false

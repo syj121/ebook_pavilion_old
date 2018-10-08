@@ -70,3 +70,4 @@ gem 'ransack'
 gem "kaminari"
 gem 'simple_form'
 gem "closure_tree"
+gem 'pry-rails', '0.3.2'
