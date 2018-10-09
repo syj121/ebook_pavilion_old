@@ -24,5 +24,8 @@ module EbookPavilion
       g.template_engine				 :my_templates
     end
 
+    #设置国际化
+    config.i18n.default_locale = 'zh-CN'
+
   end
 end

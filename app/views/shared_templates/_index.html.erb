@@ -1,0 +1,90 @@
+<div class="portlet-title">
+  <div class="caption font-green bold">
+    <span class="am-icon-code"><%= content_for :subtitle%></span>
+  </div>
+  <div class="tpl-portlet-input tpl-fz-ml">
+    <div class="portlet-input input-small input-inline">
+      <div class="input-icon right">
+        <i class="am-icon-search"></i>
+        <input type="text" class="form-control form-control-solid" name="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tpl-block">
+  <div class="am-g">
+    <div class="am-u-sm-12 am-u-md-6">
+      <div class="am-btn-toolbar">
+        <div class="am-btn-group am-btn-group-xs">
+          <% operations_list.each do |operation|%>
+            <%= link_to operation[:link_url], class: "am-btn am-btn-default am-btn-success" do %>
+              <span class="am-icon-plus"> <%= t operation[:link_name]%></span>
+            <% end -%>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12 am-u-md-3">
+      <div class="am-form-group"></div>
+    </div>
+
+    <div class="am-u-sm-12 am-u-md-3"></div>
+  </div>
+
+  <% columns = eval( CGI.unescapeHTML( yield(:table_columns).to_str ) )%>
+
+  <div class="am-g">
+    <div class="am-u-sm-12">
+      <table class="am-table am-table-striped am-table-hover table-main">
+        <thead>
+          <tr>
+            <td>index</td>
+
+            <!-- 表头 -->
+            <% columns.each do |title| %>
+              <td class="table-title"><%= title%></td>
+            <% end -%>
+            <!-- 表头 END -->
+
+            <td>opts</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% objects.each_with_index do |object, index|%>
+            <tr>
+              <td><%= index + 1%></td>
+
+              <!-- 列表 -->
+              <% columns.each do |column|%>
+                <td><%= object.send(column)%></td>
+              <% end -%>
+              <!-- 列表 END -->
+
+              <!-- 操作按钮 -->
+              <td>
+                <div class="am-btn-toolbar ">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <% operations_column(object).each do |operation|%>
+                      <%= link_to operation[:link_url], class: "am-btn am-btn-default am-btn-xs am-text-secondary", method: operation[:method] do %>
+                        <span class=""> <%= t operation[:link_name]%></span>
+                      <% end -%>
+                    <% end -%>
+                  </div>
+                </div>
+              </td>
+              <!-- 操作按钮 END -->
+
+            </tr>
+          <% end -%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="tpl-alert"></div>
+
+<%= paginate objects%>
+
+

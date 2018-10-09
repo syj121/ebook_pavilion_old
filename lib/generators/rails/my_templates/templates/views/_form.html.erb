@@ -2,5 +2,5 @@
   <%- attributes.each do |attribute| -%>
       <%%= form.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>,input_html: {class: 'validate[required]'},required: true %>
   <%- end -%>
-  <%%= render 'core/shared/form_button',f: form, back: (<%= singular_table_name.pluralize%>_path) %>
+  <%%= render '/shared/button_form',f: form, back: (<%= singular_table_name.pluralize%>_path) %>
 <%% end %>
