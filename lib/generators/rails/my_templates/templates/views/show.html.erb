@@ -1,16 +1,12 @@
-
-<!-- 标题 -->
-<%%= content_for :title, "查看表单"%>
-<!-- 子标题 -->
-<%%= content_for :subtitle, ""%>
-<!-- 列表 -->
-<%% content_for :columns do %>
-   <%  attributes.each do |att|%>
-    <%%= tr_two_th_td(@<%= singular_table_name%>, :<%= att.column_name%>) %>
-  <% end -%>
-<%% end -%>
-
-
+<!-- 二级标题 -->
+<% content_for :subtitle, "查看"%>
+<!-- 操作链接 -->
+<% content_for :back_url do %>
+  <%%= render '/shared/button_back', back: background_<%= singular_table_name %>_path %>
+<% end -%>
+<!-- 详情数据 -->
+<% content_for :show_info, attributes%>
 <!-- 页面渲染 -->
-<%%= render 'core/shared_templates/show'%>
+<%%= render partial: "shared_templates/show", locals: {object: @<%= singular_table_name%>}%>
+
 

@@ -8,6 +8,7 @@ class Background::MenusController < HighlandController
 
   # GET /menus/1
   def show
+    @menu = Menu.find(params[:id])
   end
 
   # GET /menus/new
