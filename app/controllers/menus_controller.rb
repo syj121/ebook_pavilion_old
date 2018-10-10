@@ -1,4 +1,4 @@
-class Background::MenusController < HighlandController
+class MenusController < HighlandController
 
   # GET /menus
   def index
@@ -8,7 +8,6 @@ class Background::MenusController < HighlandController
 
   # GET /menus/1
   def show
-    @menu = Menu.find(params[:id])
   end
 
   # GET /menus/new
@@ -18,7 +17,6 @@ class Background::MenusController < HighlandController
 
   # GET /menus/1/edit
   def edit
-    @menu = Menu.find(params[:id])
   end
 
   # POST /menus
@@ -26,7 +24,7 @@ class Background::MenusController < HighlandController
     @menu = Menu.new(menu_params)
 
     if @menu.save
-      redirect_to [:background, @menu], notice: 'Menu 创建成功！'
+      redirect_to @menu, notice: 'Menu 创建成功！'
     else
       render :new
     end
@@ -34,9 +32,8 @@ class Background::MenusController < HighlandController
 
   # PATCH/PUT /menus/1
   def update
-    @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
-      redirect_to [:background, @menu], notice: 'Menu 更新成功！'
+      redirect_to @menu, notice: 'Menu 更新成功！'
     else
       render :edit
     end
@@ -52,6 +49,6 @@ class Background::MenusController < HighlandController
 
     # Only allow a trusted parameter "white list" through.
     def menu_params
-      params.require(:menu).permit(:name, :order_num, :show, :parent_id, :url)
+      params.require(:menu).permit(:name, :url, :parent_id, :usable, :description)
     end
 end

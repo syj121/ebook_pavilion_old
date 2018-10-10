@@ -2,9 +2,11 @@
 <% content_for :subtitle, "查看"%>
 <!-- 操作链接 -->
 <% content_for :back_url do %>
-  <%= render '/shared/button_back', back: (background_menus_path) %>
+  <%= render '/shared/button_back', back: menus_path %>
 <% end -%>
 <!-- 详情数据 -->
-<% content_for :show_info, ["id", "name", "show", "order_num"]%>
+<% content_for :show_info, ["name", "url", "parent_id", "usable", "description"]%>
 <!-- 页面渲染 -->
 <%= render partial: "shared_templates/show", locals: {object: @menu}%>
+
+

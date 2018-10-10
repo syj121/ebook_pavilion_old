@@ -1,8 +1,0 @@
-<%= simple_form_for [:background, @menu] , html: {class: 'valid_engine '} do |form| %>
-  <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
-  <%= form.input :show,input_html: {class: 'validate[required]'},required: true %>
-  <%= form.input :order_num,input_html: {class: 'validate[required]'},required: true %>
-  <%= form.input :parent_id, collection: Menu.pluck(:name, :id)%>
-  <%= form.input :url,input_html: {class: 'validate[required]'},required: true %>
-  <%= render '/shared/button_form',f: form, back: (background_menus_path) %>
-<% end %>

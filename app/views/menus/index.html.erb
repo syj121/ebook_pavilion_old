@@ -1,6 +1,7 @@
 <!-- 二级标题 -->
-<% content_for :subtitle, "菜单管理"%>
+<% content_for :subtitle, ""%>
 <!-- 列表标题 -->
-<% content_for :table_columns, ["id", "name", "show", "order_num"] %>
+<% content_for :table_columns, ["name", "url", "parent_id", "usable", "description"] %>
 <!-- 页面渲染 -->
 <%= render partial: "shared_templates/index", locals: {objects: @menus}%>
+

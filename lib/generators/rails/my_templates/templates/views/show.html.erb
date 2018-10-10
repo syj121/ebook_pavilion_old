@@ -1,11 +1,11 @@
 <!-- 二级标题 -->
-<% content_for :subtitle, "查看"%>
+<%% content_for :subtitle, "查看"%>
 <!-- 操作链接 -->
-<% content_for :back_url do %>
-  <%%= render '/shared/button_back', back: background_<%= singular_table_name %>_path %>
-<% end -%>
+<%% content_for :back_url do %>
+  <%%= render '/shared/button_back', back: <%= singular_table_name %>s_path %>
+<%% end -%>
 <!-- 详情数据 -->
-<% content_for :show_info, attributes%>
+<%% content_for :show_info, <%= attributes.map(&:column_name)%>%>
 <!-- 页面渲染 -->
 <%%= render partial: "shared_templates/show", locals: {object: @<%= singular_table_name%>}%>
 

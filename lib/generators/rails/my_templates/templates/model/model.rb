@@ -9,5 +9,8 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 <% if attributes.any?(&:password_digest?) -%>
   has_secure_password
 <% end -%>
+<% if options[:use_tree]%>
+  has_closure_tree
+<% end %>
 end
 <% end -%>

@@ -20,7 +20,10 @@
 
     class_option :migration, type: :boolean, default: true 
     class_option :timestamps, type: :boolean, default: true
+    #是否使用软删除      默认true
     class_option :soft_delete, type: :boolean, default: true
+    #是否使用树形结构  默认false
+    class_option :use_tree, type: :boolean, default: false
     class_option :parent, type: :string, desc: "The parent class for the generated model"
     class_option :indexes, type: :boolean, default: true, desc: "Add indexes for references and belongs_to columns"
     class_option :primary_key_type, type: :string, desc: "The type for primary key"

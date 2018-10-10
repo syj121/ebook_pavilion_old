@@ -14,9 +14,11 @@ class MenusTest < ApplicationSystemTestCase
     visit menus_url
     click_on "New Menu"
 
+    fill_in "Description", with: @menu.description
     fill_in "Name", with: @menu.name
-    fill_in "Order Num", with: @menu.order_num
-    fill_in "Show", with: @menu.show
+    fill_in "Parent", with: @menu.parent_id
+    fill_in "Url", with: @menu.url
+    fill_in "Usable", with: @menu.usable
     click_on "Create Menu"
 
     assert_text "Menu was successfully created"
@@ -27,9 +29,11 @@ class MenusTest < ApplicationSystemTestCase
     visit menus_url
     click_on "Edit", match: :first
 
+    fill_in "Description", with: @menu.description
     fill_in "Name", with: @menu.name
-    fill_in "Order Num", with: @menu.order_num
-    fill_in "Show", with: @menu.show
+    fill_in "Parent", with: @menu.parent_id
+    fill_in "Url", with: @menu.url
+    fill_in "Usable", with: @menu.usable
     click_on "Update Menu"
 
     assert_text "Menu was successfully updated"

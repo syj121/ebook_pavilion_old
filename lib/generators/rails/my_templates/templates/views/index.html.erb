@@ -1,7 +1,7 @@
 <!-- 二级标题 -->
-<% content_for :subtitle, ""%>
+<%% content_for :subtitle, ""%>
 <!-- 列表标题 -->
 <%% content_for :table_columns, <%= attributes.map(&:column_name)%> %>
 <!-- 页面渲染 -->
-<%%= render partial: "shared_templates/index", locals: {objects: @<%= singular_table_name%>}%>
+<%%= render partial: "shared_templates/index", locals: {objects: @<%= singular_table_name%>s}%>
 

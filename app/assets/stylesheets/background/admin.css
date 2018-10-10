@@ -395,4 +395,5 @@ gallery.html css
   color: #555;
   box-shadow: none;
   font-size: 14px;
+  min-height: 20px;
 }
