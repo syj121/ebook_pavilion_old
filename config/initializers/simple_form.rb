@@ -70,6 +70,17 @@ SimpleForm.setup do |config|
 
   end
 
+  #表单检索样式
+  config.wrappers :search_class, class: '' do |b|
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    #b.use :label, class: ""
+    b.use :input, class: "form-control form-control-solid"
+  end
+
 
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
@@ -130,7 +141,7 @@ SimpleForm.setup do |config|
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
 
   # Whether attributes are required by default (or not). Default is true.
-  # config.required_by_default = true
+   config.required_by_default = false
 
   # Tell browsers whether to use the native HTML5 validations (novalidate form option).
   # These validations are enabled in SimpleForm's internal config but disabled by default
@@ -186,4 +197,6 @@ SimpleForm.setup do |config|
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
+
+
 end

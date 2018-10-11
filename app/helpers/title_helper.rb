@@ -1,7 +1,7 @@
 module TitleHelper
 
   #标题国际化
-  def subtitle_label(object, label)
+  def subtitle_label(object, label, option={})
     t("subtitle.#{label}") +  t("models.#{object}", default: [object.camelize])
   end
 

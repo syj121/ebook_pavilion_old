@@ -1,0 +1,9 @@
+  <% column_name = "#{field_hash[:column_name]}_#{field_hash[:type]}"%>
+  
+   <div class="tpl-portlet-input tpl-fz-ml left">
+     <div class="portlet-input input-small input-inline">
+       <div class="input-icon">
+         <%= form.input column_name, placeholder: column_name%>
+       </div>
+     </div>
+   </div>

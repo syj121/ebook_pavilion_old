@@ -1,15 +1,13 @@
-<%%= search_form_for q, :url => <%= singular_table_name.pluralize%>_path, :html => {:method => :get, :class => "well form-inline form-search"}  do |f| %>
-  <%- attributes.each do |attribute| -%>
-    <div class='form-group prb30'>
-      <%%= f.label :<%= attribute.name%>%>
-      <%%= f.text_field :<%= attribute.name%>_cont, class: "form-control" %>
-    </div>
-  <%- end -%>
+<!-- 搜索参数 -->
+<%% search_columns =   <%= attributes.map { |attribute| {type: :cont, column_name: attribute.name.to_sym} }%>%>
 
-  <div class='form-group prb30'>
-    <%%= render "/core/shared/search_bottom", :f => f %>
-    <%%= link_to "导出", export_path(object_class: "Core::EntScale", back: request.fullpath, q: params[:q].try(:permit!)), class: "ml8 btn btn-info"%>
-  </div>
+<%%= search_form_for q, :url => <%= singular_table_name.pluralize%>_path, :html => {:method => :get, :class => "well form-inline form-search"}  do |f| %>
+  
+  <% search_columns.each do |field_hash| %>
+    <%= render "shared_templates/search", form: form, field_hash: field_hash%>
+  <% end -%>
+
+  <%= render "shared/button_search", form: form%>
 <%% end %>
 
 
