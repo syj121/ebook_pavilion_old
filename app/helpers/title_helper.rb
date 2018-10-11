@@ -1,20 +1,20 @@
 module TitleHelper
 
-  def title_new(object)
-    t("new") +  t("models.#{object}", default: [object.camelize])
+  #标题国际化
+  def subtitle_label(object, label)
+    t("subtitle.#{label}") +  t("models.#{object}", default: [object.camelize])
   end
 
-  def title_edit(object)
-    t("edit") +  t("models.#{object}", default: [object.camelize])
+  #按钮国际化
+  def button_label(label)
+    t "buttons.#{label}", default: [label]
   end
 
-  def title_show(object)
-    t("show") +  t("models.#{object}", default: [object.camelize])
+  #index页面，表头国际化
+  def table_title_label(label)
+    t "#{controller_name}.index.table_title.#{label}", default: ["table_title.#{label}".to_sym, label]
   end
 
-  def title_button_label(label)
-    t label, default: [label]
-  end
 
 
 end

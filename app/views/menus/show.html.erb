@@ -1,5 +1,5 @@
 <!-- 二级标题 -->
-<% content_for :subtitle, title_show("menus") %>
+<% content_for :subtitle, subtitle_label("menus", "show") %>
 <!-- 操作链接 -->
 <% content_for :back_url do %>
   <%= render '/shared/button_back', back: menus_path %>

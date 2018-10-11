@@ -4,16 +4,16 @@ module ButtonHelper
   #表格操作按钮
   def operations_column(object)
     [
-      {link_name: "edit", link_url: send("edit_#{single_name}_path", object), method: :get},
-      {link_name: "show", link_url: send("#{single_name}_path", object), method: :get},
-      {link_name: "delete", link_url: send("#{single_name}_path", object), method: :delete},
+      {link_name: button_label("edit"), link_url: send("edit_#{single_name}_path", object), method: :get},
+      {link_name: button_label("show"), link_url: send("#{single_name}_path", object), method: :get},
+      {link_name: button_label("delete"), link_url: send("#{single_name}_path", object), method: :delete},
     ]
   end
 
   #index页面，操作按钮
   def operations_list
     [
-      {link_name: "new", link_url: send("new_#{single_name}_path"), method: :get}
+      {link_name: button_label("new"), link_url: send("new_#{single_name}_path"), method: :get}
     ]
   end
 
