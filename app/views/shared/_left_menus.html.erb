@@ -12,7 +12,7 @@
     <% menu_block = lambda do  |menus|%>
       <% return nil if menus.blank?%>
       <% menus.each do |menu|%>
-        <% if menu.children.present? %>
+        <% if menu.children.present?%>
           <li class="tpl-left-nav-item">
             <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
               <i class="am-icon-wpforms"></i>
@@ -23,7 +23,14 @@
               <li><% menu_block.call(menu.descendants)%></li>
             </ul>
           </li>
-        <% else %>
+        <% elsif menu.root? %>
+          <li class="tpl-left-nav-item">
+            <a href="<%= menu.url %>" class="nav-link tpl-left-nav-link-list">
+              <i class=""></i>
+              <span><%= menu.name%></span>
+            </a>
+          </li>
+        <% else%>
           <a href="<%= menu.url%>">
             <i class="am-icon-angle-right"></i>
             <span><%= menu.name%></span>

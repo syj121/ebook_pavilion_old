@@ -1,11 +1,11 @@
 class CreateMenus < ActiveRecord::Migration[5.2]
   def change
     create_table :menus do |t|
-      t.string :name, null: false, comment: "菜单名"
-      t.string :url, default: "", comment: "菜单链接"
-      t.integer :parent_id, comment: "父id"
-      t.boolean :usable, default: false, comment: "是否可用"
-      t.text :description, comment: "菜单描述"
+      t.string :name
+      t.string :url
+      t.boolean :usable
+      t.integer :parent_id
+      t.text :description
 
       t.datetime :deleted_at, comment: '删除时间'
       t.boolean  :is_deleted,default: false,comment: '0未删除 1删除'

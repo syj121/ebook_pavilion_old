@@ -21,11 +21,14 @@ module EbookPavilion
     #template_engine：设置使用哪个模板引擎，例如 ERB 或 Haml，默认为 :erb。
     config.generators do |g|
       g.orm            				 false
+      #不自动生成路由，自定义路由，添加国际化
+      g.resource_route false
+      #自定义模板
       g.template_engine				 :my_templates
     end
 
-    #设置国际化
-    config.i18n.default_locale = 'zh-CN'
+    #设置编码格式
+    config.encoding = "utf-8"
 
   end
 end

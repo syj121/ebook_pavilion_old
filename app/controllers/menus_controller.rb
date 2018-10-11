@@ -49,6 +49,6 @@ class MenusController < HighlandController
 
     # Only allow a trusted parameter "white list" through.
     def menu_params
-      params.require(:menu).permit(:name, :url, :parent_id, :usable, :description)
+      params.require(:menu).permit(:name, :url, :usable, :parent_id, :description)
     end
 end

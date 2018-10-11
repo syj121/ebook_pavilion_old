@@ -19,9 +19,9 @@
         <div class="am-btn-group am-btn-group-xs">
           <% operations_list.each do |operation|%>
             <%= link_to operation[:link_url], class: "am-btn am-btn-default am-btn-success" do %>
-              <span class="am-icon-plus"> <%= t operation[:link_name]%></span>
+              <span class="am-icon-plus"> <%= t("operations_list.#{operation[:link_name]}")%></span>
             <% end -%>
-          <% end -%>
+          <% end%>
         </div>
       </div>
     </div>
@@ -40,15 +40,15 @@
       <table class="am-table am-table-striped am-table-hover table-main">
         <thead>
           <tr>
-            <td>index</td>
+            <td><%= t("table_title.index")%></td>
 
             <!-- 表头 -->
             <% columns.each do |title| %>
-              <td class="table-title"><%= title%></td>
+              <td class="table-title"><%= t "#{controller_name}.index.table_title.#{title}", default: ["table_title.#{title}".to_sym, title]%></td>
             <% end -%>
             <!-- 表头 END -->
 
-            <td>opts</td>
+            <td><%= t("table_title.opts")%></td>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +68,7 @@
                   <div class="am-btn-group am-btn-group-xs">
                     <% operations_column(object).each do |operation|%>
                       <%= link_to operation[:link_url], class: "am-btn am-btn-default am-btn-xs am-text-secondary", method: operation[:method] do %>
-                        <span class=""> <%= t operation[:link_name]%></span>
+                        <span class=""> <%= t("operations.#{operation[:link_name]}", default: [operation[:link_name]])%></span>
                       <% end -%>
                     <% end -%>
                   </div>

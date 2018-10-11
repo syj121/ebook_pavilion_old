@@ -45,6 +45,28 @@
       end
     end
 
+
+    def add_resource_route
+
+      #depth深度，lines每行内容
+      depth, lines = 0, []
+
+      regular_class_path.each do |ns|
+        lines << indent("namespace :#{ns} do\n", depth * 2)
+        depth += 1
+      end
+
+      lines << indent(%{scope "(:locale)", locale: /en|zh-CN/ do\n}, depth * 2);  depth += 1
+      lines << indent(%{resources :#{file_name.pluralize}\n}, depth * 2)
+
+      until depth.zero?
+        depth -= 1
+        lines << indent("end\n", depth * 2)
+      end
+
+      route lines.join
+    end
+
     # def create_controller_files
     #   template "controller/controller.rb", File.join("app/controllers", controller_class_path, "#{controller_file_name}_controller.rb")
     # end
@@ -58,6 +80,13 @@
 
     def create_policy_files
        template "policy/policy.rb", File.join("app/policies", "#{file_name}_policy.rb")
+    end
+
+    #添加国际化文件
+    def create_locale_files
+      I18n.available_locales.each do |language|
+        create_locale_file(language)
+      end
     end
 
 
@@ -75,6 +104,14 @@
       # Used by the migration template to determine the parent name of the model
       def parent_class_name
         options[:parent] || "ApplicationRecord"
+      end
+
+      #添加国际化文件
+      def create_locale_file(language)
+        ["models", "views"].each do |label|
+          file_path = File.join("config", "locales", label, table_name, "#{language}.yml")
+          template "locale/#{language}.yml", file_path
+        end
       end
 
   end
