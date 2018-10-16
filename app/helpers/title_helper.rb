@@ -20,6 +20,10 @@ module TitleHelper
     t "#{controller_name}.attributes.#{label}", default: ["attributes.#{label}".to_sym, label.to_s]
   end
 
+  def include_blank_label(label)
+    t "#{controller_name}.attributes.#{label}", default: [label]
+  end
+
   def common_label(label)
     t label, default: [label.to_s]
   end

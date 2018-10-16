@@ -1,5 +1,8 @@
 <!-- 搜索参数 -->
-<%% search_columns =  <%= attributes.map { |attribute| {attribute_name: attribute.name.to_sym, attribute_type: attribute.type}}%>%>
+<%% search_columns =  <%= attributes.map { |attribute| 
+  next if attribute.type == :text
+  {attribute_name: attribute.name.to_sym, attribute_type: attribute.type}
+  }.compact%>%>
 <!-- 页面渲染 -->
 <%%= render "shared_templates/search", url: <%= singular_table_name.pluralize%>_path, search_columns: search_columns%>
 

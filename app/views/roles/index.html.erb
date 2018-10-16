@@ -1,0 +1,5 @@
+<!-- 列表标题 -->
+<% content_for :table_columns, ["name", "usable", "description"] %>
+<!-- 页面渲染 -->
+<%= render partial: "shared_templates/index", locals: {objects: @roles}%>
+

@@ -1,0 +1,12 @@
+<!-- 二级标题 -->
+<% content_for :subtitle, subtitle_label("roles", "show") %>
+<!-- 操作链接 -->
+<% content_for :back_url do %>
+  <%= render '/shared/button_back', back: roles_path %>
+<% end -%>
+<!-- 详情数据 -->
+<% content_for :show_info, ["name", "usable", "parent_id", "description"]%>
+<!-- 页面渲染 -->
+<%= render partial: "shared_templates/show", locals: {object: @role}%>
+
+

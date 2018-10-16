@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   scope "(:locale)", locale: /en|zh-CN/ do
+    resources :roles
+  end
+  scope "(:locale)", locale: /en|zh-CN/ do
     resources :menus
   end
   scope "(:locale)", locale: RouteLanguage do

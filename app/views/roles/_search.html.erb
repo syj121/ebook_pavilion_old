@@ -1,0 +1,6 @@
+<!-- 搜索参数 -->
+<% search_columns =  [{:attribute_name=>:name, :attribute_type=>:string}, {:attribute_name=>:usable, :attribute_type=>:boolean, options: {include_blank: false}}]%>
+<!-- 页面渲染 -->
+<%= render "shared_templates/search", url: roles_path, search_columns: search_columns%>
+
+

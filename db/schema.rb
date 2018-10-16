@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_11_020532) do
+ActiveRecord::Schema.define(version: 2018_10_16_073412) do
 
   create_table "menu_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "ancestor_id", null: false
@@ -31,6 +31,26 @@ ActiveRecord::Schema.define(version: 2018_10_11_020532) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["is_deleted"], name: "index_menus_on_is_deleted"
+  end
+
+  create_table "role_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "role_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "role_desc_idx"
+  end
+
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.boolean "usable"
+    t.integer "parent_id"
+    t.text "description"
+    t.datetime "deleted_at", comment: "删除时间"
+    t.boolean "is_deleted", default: false, comment: "0未删除 1删除"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["is_deleted"], name: "index_roles_on_is_deleted"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
