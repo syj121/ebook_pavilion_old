@@ -20,7 +20,7 @@
 
         <% columns.each do |column |%>
           <div class="am-form-group">
-            <label class="am-u-sm-3 am-form-label"><%= t column%></label>
+            <label class="am-u-sm-3 am-form-label"><%= table_title_label(column)%></label>
             <div class="am-u-sm-9">
               <div class="tpl-form-record"><%= object.send(column)%></div>
               <small></small>

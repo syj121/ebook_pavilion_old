@@ -17,9 +17,5 @@ module ButtonHelper
     ]
   end
 
-  private
-  def single_name
-    controller_name.singularize
-  end
 
 end

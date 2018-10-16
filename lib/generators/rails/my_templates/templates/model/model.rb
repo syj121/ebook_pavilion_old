@@ -12,5 +12,8 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 <% if options[:use_tree]%>
   has_closure_tree
 <% end %>
+<% if attributes.any?{|attribute|attribute.type == :boolean}%>
+  include Common
+<% end %>
 end
 <% end -%>

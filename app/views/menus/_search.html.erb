@@ -1,11 +1,10 @@
 <!-- 搜索参数 -->
-<% search_columns =   [{type: :cont, column_name: :name}]%>
-
-<%= search_form_for q, :url => menus_path, html: {class: 'valid_engine'}, wrapper: :search_class, method: :get  do |form| %>
-  <% search_columns.each do |field_hash| %>
-    <%= render "shared_templates/search", form: form, field_hash: field_hash%>
-  <% end -%>
-  <%= render "shared/button_search", form: form%>
-<% end %>
+<% search_columns =  
+  [
+    {attribute_name: :name, attribute_type: :string},
+    {attribute_name: :usable, attribute_type: :boolean}
+  ]
+%>
+<%= render "shared_templates/search", url: menus_path, search_columns: search_columns%>
 
 

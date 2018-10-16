@@ -1,9 +1,15 @@
-  <% column_name = "#{field_hash[:column_name]}_#{field_hash[:type]}"%>
-  
-   <div class="tpl-portlet-input tpl-fz-ml left">
-     <div class="portlet-input input-small input-inline">
-       <div class="input-icon">
-         <%= form.input column_name, placeholder: column_name%>
+
+   <%= search_form_for @q, :url => url, html: {class: 'search_form'}, wrapper: :search_form, method: :get  do |form| %>
+     <%= render "shared/button_search", form: form%>
+
+     <% search_columns.each do |search_hash| %>
+       <div class="tpl-portlet-input tpl-fz-ml right">
+         <div class="portlet-input input-small input-inline">
+           <div class="input-icon">
+             <%= ransack_search(form, search_hash)%>
+           </div>
+         </div>
        </div>
-     </div>
-   </div>
+     <% end -%>
+
+   <% end %>

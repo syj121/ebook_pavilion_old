@@ -71,7 +71,7 @@ SimpleForm.setup do |config|
   end
 
   #表单检索样式
-  config.wrappers :search_class, class: '' do |b|
+  config.wrappers :search_form, class: 'right' do |b|
     b.use :placeholder
     b.optional :maxlength
     b.optional :pattern

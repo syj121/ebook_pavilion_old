@@ -1,4 +1,6 @@
 zh-CN:
+  "true": "是"
+  "false": "否"
   subtitle:
     new: 新增 
     edit:  编辑
