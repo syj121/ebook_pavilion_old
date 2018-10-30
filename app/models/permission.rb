@@ -3,5 +3,6 @@ class Permission < ApplicationRecord
 
 
   include Common
+  include SoftDelete
 
 end

@@ -14,6 +14,7 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 <% end %>
 <% if attributes.any?{|attribute|attribute.type == :boolean}%>
   include Common
+  include SoftDelete
 <% end %>
 end
 <% end -%>

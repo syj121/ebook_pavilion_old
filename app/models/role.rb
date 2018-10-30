@@ -4,6 +4,7 @@ class Role < ApplicationRecord
 
 
   include Common
+  include SoftDelete
 
   scope :usable, -> {where(usable: true)}
 
