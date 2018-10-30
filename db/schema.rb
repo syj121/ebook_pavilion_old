@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_073412) do
+ActiveRecord::Schema.define(version: 2018_10_16_081912) do
 
   create_table "menu_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "ancestor_id", null: false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 2018_10_16_073412) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["is_deleted"], name: "index_menus_on_is_deleted"
+  end
+
+  create_table "permissions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "menu_id"
+    t.boolean "usable"
+    t.datetime "deleted_at", comment: "删除时间"
+    t.boolean "is_deleted", default: false, comment: "0未删除 1删除"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["is_deleted"], name: "index_permissions_on_is_deleted"
+    t.index ["menu_id"], name: "index_permissions_on_menu_id"
   end
 
   create_table "role_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,4 +75,5 @@ ActiveRecord::Schema.define(version: 2018_10_16_073412) do
     t.index ["login_name"], name: "index_users_on_login_name", unique: true
   end
 
+  add_foreign_key "permissions", "menus"
 end

@@ -1,6 +1,7 @@
 <!-- 搜索参数 -->
 <%% search_columns =  <%= attributes.map { |attribute| 
   next if attribute.type == :text
+  next if attribute.type == :references
   {attribute_name: attribute.name.to_sym, attribute_type: attribute.type}
   }.compact%>%>
 <!-- 页面渲染 -->

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   
-  scope "(:locale)", locale: /en|zh-CN/ do
+  scope "(:locale)", locale: RouteLanguage do
     resources :roles
   end
-  scope "(:locale)", locale: /en|zh-CN/ do
-    resources :menus
-  end
   scope "(:locale)", locale: RouteLanguage do
-    resources :menus
+    resources :menus do 
+      resources :permissions
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -56,7 +56,7 @@
         depth += 1
       end
 
-      lines << indent(%{scope "(:locale)", locale: /en|zh-CN/ do\n}, depth * 2);  depth += 1
+      lines << indent(%{scope "(:locale)", locale: RouteLanguage do\n}, depth * 2);  depth += 1
       lines << indent(%{resources :#{file_name.pluralize}\n}, depth * 2)
 
       until depth.zero?

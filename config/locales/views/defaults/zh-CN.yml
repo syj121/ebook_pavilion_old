@@ -12,6 +12,7 @@ zh-CN:
     show: 查看
     submit: 提交 
     back: 返回 
+    permission_manage:  权限管理
   table_title:
     index: 序号
     opts: 操作

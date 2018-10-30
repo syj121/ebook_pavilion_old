@@ -1,0 +1,5 @@
+<!-- 列表标题 -->
+<% @table_columns =  ["name", "menu_id", "usable"] %>
+<!-- 页面渲染 -->
+<%= render partial: "shared_templates/index", locals: {options: {nested: "menu"}}%>
+
