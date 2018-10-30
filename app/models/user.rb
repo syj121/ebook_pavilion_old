@@ -4,6 +4,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable
          #, :recoverable, :rememberable, :trackable, :validatable
 
-  include Common
-  include SoftDelete
 end

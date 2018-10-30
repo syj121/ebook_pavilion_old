@@ -13,8 +13,8 @@ class <%= class_name %> < <%= parent_class_name.classify %>
   has_closure_tree
 <% end %>
 <% if attributes.any?{|attribute|attribute.type == :boolean}%>
-  include Common
-  include SoftDelete
+  # include Common
+  # include SoftDelete
 <% end %>
 end
 <% end -%>
