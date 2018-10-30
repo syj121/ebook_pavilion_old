@@ -1,0 +1,8 @@
+<%= simple_form_for @user , html: {class: 'valid_engine'} do |form| %>
+  <%= form.input :login_name,input_html: {class: 'validate[required]'},required: true %>
+  <%= form.input :real_name,input_html: {class: 'validate[required]'},required: true %>
+  <%= form.input :email,  input_html: {class: ''}%>
+  <%#= form.input :password,  input_html: {class: ''}%>
+  <%#= form.input :password_confirmation,  input_html: {class: ''}%>
+  <%= render '/shared/button_form',f: form, back: (users_path) %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_081912) do
+ActiveRecord::Schema.define(version: 2018_10_30_080746) do
 
   create_table "menu_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "ancestor_id", null: false
@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 2018_10_16_081912) do
     t.string "real_name", default: "匿名"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_deleted", default: false, comment: "0未删除 1删除"
+    t.datetime "deleted_at", comment: "删除时间"
+    t.index ["is_deleted"], name: "index_users_on_is_deleted"
     t.index ["login_name"], name: "index_users_on_login_name", unique: true
   end
 

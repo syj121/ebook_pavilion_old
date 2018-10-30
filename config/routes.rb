@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       resources :permissions
     end
   end
+  scope "(:locale)", locale: RouteLanguage do
+    resources :users
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root "home#index"
