@@ -1,0 +1,6 @@
+<!-- 列表标题 -->
+
+<% @table_columns = ["name"] %>
+<!-- 页面渲染 -->
+<%= render partial: "shared_templates/index", locals: {objects: @book_categorys}%>
+

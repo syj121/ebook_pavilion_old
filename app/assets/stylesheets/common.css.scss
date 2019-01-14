@@ -1,0 +1,22 @@
+
+
+@for $i from 1 to 50 {
+    .mt#{$i} {
+        margin-top: #{$i}px;
+    }
+    .ml#{$i} {
+        margin-left: #{$i}px;
+    }
+    .mr#{$i} {
+        margin-left: #{$i}px;
+    }
+    .mb#{$i} {
+        margin-left: #{$i}px;
+    }
+}
+
+
+.textc {text-align: center;}
+.left {float: left;}
+.right {float: right;}
+.relative {position: relative;}

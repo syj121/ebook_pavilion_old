@@ -1,0 +1,4 @@
+<%= simple_form_for @role, url: set_menus_role_path(@role) , html: {class: 'valid_engine', method: :post} do |form| %>
+  <%= form.association :menus, collection: Menu.pluck(:name, :id), as: :check_boxes %>
+  <%= render '/shared/button_form',f: form, back: (roles_path) %>
+<% end %>

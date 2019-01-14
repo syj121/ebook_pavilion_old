@@ -1,0 +1,11 @@
+<%= simple_form_for @book , html: {class: 'valid_engine'} do |form| %>
+  <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
+  <%= form.association :book_category,input_html: {class: 'validate[required]'},required: true %>
+
+  <%= form.fields_for :info do |info_form|%>
+    <%= info_form.input :desc%>
+    <%= info_form.input :details%>
+  <% end -%>
+
+  <%= render '/shared/button_form',f: form, back: (books_path) %>
+<% end %>

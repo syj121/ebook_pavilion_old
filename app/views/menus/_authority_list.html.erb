@@ -1,0 +1,12 @@
+<% if @authority_list.present?%>
+  <div class="am-form am-form-horizontal select optional field_without_errors">
+    <div class="am-form-group">
+      <label class="am-u-sm-3 am-form-label select optional">所有权限</label>
+      <div class="am-u-sm-9">
+        <span class="string">
+          <%= @authority_list.is_a?(Hash) ?  @authority_list.map{|key, hash|hash[:name]}.join("   ") : "暂无权限组"%>        
+        </span>
+      </div>
+    </div>
+  </div>
+<% end -%>

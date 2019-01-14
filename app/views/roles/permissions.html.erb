@@ -1,0 +1,18 @@
+<%= simple_form_for @role , html: {class: 'valid_engine', method: :post} do |form| %>
+  <%= form.association :menus, collection: Menu.pluck(:name, :id), as: :check_boxes %>
+  <%= render '/shared/button_form',f: form, back: (roles_path) %>
+<% end %>
+
+<% @menus.each do |menu|%>
+  <div>
+    <%= menu.name%>
+    <% groups = I18n.t("authority_#{menu.authority_name}")%>
+    <% groups.each do |key, hash|%>
+      <div class="ml10">
+        <%= check_box_tag "permissions", key%>
+        <%= hash[:name]%>
+      </div>
+    <% end if groups.is_a?(Hash)%>
+  </div>
+  <div class="mt10"></div>
+<% end -%>

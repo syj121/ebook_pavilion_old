@@ -71,3 +71,5 @@ gem "kaminari"
 gem 'simple_form'
 gem "closure_tree"
 gem 'pry-rails', '0.3.2'
+#文件上传
+gem "carrierwave"

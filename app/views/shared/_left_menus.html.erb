@@ -43,10 +43,10 @@
     <% menu_block.call(Menu.roots)%>
 
     <li class="tpl-left-nav-item">
-      <a href="login.html" class="nav-link tpl-left-nav-link-list">
+      <%= link_to new_user_session_path, class: "nav-link tpl-left-nav-link-list" do %>
         <i class=""></i>
         <span>登录</span>
-      </a>
+      <% end -%>
     </li>
 
   </ul>

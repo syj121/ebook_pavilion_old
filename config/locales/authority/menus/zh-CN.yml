@@ -1,0 +1,19 @@
+zh-CN:
+  menus: 
+    list: 
+      name: "列表页查看"
+      index: 
+    create:
+      name: "新增"
+      new:
+      create:
+    show:
+      name: "查看" 
+      show: 
+    delete: 
+      name: "删除"
+      destroy:
+    edit:
+      name: "编辑"
+      destroy: 
+

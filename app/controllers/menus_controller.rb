@@ -12,7 +12,6 @@ class MenusController < HighlandController
 
   # GET /menus/new
   def new
-    @menu = Menu.new
   end
 
   # GET /menus/1/edit
@@ -30,6 +29,11 @@ class MenusController < HighlandController
     end
   end
 
+  def edit
+    @authority_list = I18n.t("authority_#{@menu.authority_name}")
+    @permissions = @menu.permissions.pluck(:name)
+  end
+
   # PATCH/PUT /menus/1
   def update
     if @menu.update(menu_params)
@@ -45,10 +49,16 @@ class MenusController < HighlandController
     redirect_to menus_url, notice: 'Menu 删除成功！'
   end
 
+  def authority_list
+    @authority_name = I18n.t("authority")[params[:authority_name].to_sym]
+    @authority_list = I18n.t("authority_#{params[:authority_name]}")
+  end
+
   private
 
     # Only allow a trusted parameter "white list" through.
     def menu_params
-      params.require(:menu).permit(:name, :url, :usable, :parent_id, :description)
+      params.require(:menu).permit(:name, :authority_name, :usable, :parent_id, :description, permissions_attributes: [:id, :name, :_destroy])
+      #params.require(:menu).permit!
     end
 end

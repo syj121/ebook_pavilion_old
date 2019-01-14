@@ -45,6 +45,15 @@ class RolesController < HighlandController
     redirect_to roles_url, notice: 'Role 删除成功！'
   end
 
+  def set_menus
+    @role.menu_ids = params[:role][:menu_ids]
+    redirect_to action: :menus
+  end
+
+  def permissions
+    @menus = @role.menus
+  end
+
   private
 
     # Only allow a trusted parameter "white list" through.

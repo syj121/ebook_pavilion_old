@@ -1,0 +1,11 @@
+<%= simple_form_for @book_category , html: {class: 'valid_engine'} do |form| %>
+  <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
+
+  <%= form.fields_for :info do |info_form|%>
+    <%= info_form.input :desc, class: 'validate[required]'%>
+    <%= info_form.input :details, class: 'validate[required]' %>
+    <%= info_form.input :cover, as: :file%>
+  <% end -%>
+
+  <%= render '/shared/button_form',f: form, back: (book_categories_path) %>
+<% end %>

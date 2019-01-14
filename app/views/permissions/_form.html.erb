@@ -1,6 +1,6 @@
 <%= simple_form_for [@menu, @permission] , html: {class: 'valid_engine'} do |form| %>
-      <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
-      <%= form.input :menu_id, as: :hidden%>
-      <%= form.input :usable,input_html: {class: 'validate[required]'},required: true %>
+  <%= form.input :name,input_html: {class: 'validate[required]'},required: true %>
+  <%= form.input :menu_id, as: :hidden%>
+  <%= form.input :usable,input_html: {class: 'validate[required]'},required: true %>
   <%= render '/shared/button_form',f: form, back: (menu_permissions_path) %>
 <% end %>
