@@ -4,12 +4,12 @@
   <%= form.input :parent_id, collection: Menu.pluck(:name, :id), input_html: {class: 'validate[required]'},required: true %>
   <%= form.input :description,input_html: {class: 'validate[required]'},required: true %>
   <!-- 权限组 -->
-  <%= form.input :authority_name, collection: I18n.t("authority"), input_html: {onchange: "authority_list();"}%>
-  <div id="authority_list"><%= render "authority_list"%></div>
+  <%#= form.input :authority_name, collection: I18n.t("authority"), input_html: {onchange: "authority_list();"}%>
+  <div id="authority_list"><%#= render "authority_list"%></div>
   <%= render '/shared/button_form',f: form, back: (menus_path) %>
 <% end %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function authority_list(){
     $.ajax({
       url: '/menus/authority_list',
@@ -17,4 +17,4 @@
       data: {  authority_name: $("#menu_authority_name").val() }
     });
   }
-</script>
+</script> -->

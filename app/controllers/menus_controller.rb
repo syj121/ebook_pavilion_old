@@ -31,7 +31,7 @@ class MenusController < HighlandController
 
   def edit
     @authority_list = I18n.t("authority_#{@menu.authority_name}")
-    @permissions = @menu.permissions.pluck(:name)
+    # @permissions = @menu.permissions.pluck(:name)
   end
 
   # PATCH/PUT /menus/1

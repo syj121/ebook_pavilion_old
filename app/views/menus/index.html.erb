@@ -1,5 +1,74 @@
-<!-- 列表标题 -->
-<% @table_columns = ["name", "url", "usable", "parent_id", "description"] %>
-<!-- 页面渲染 -->
-<%= render partial: "shared_templates/index"%>
+<div class="tpl-block">
+
+  <!-- 操作列表，如：新增（new） -->
+  <div class="am-g">
+    <div class="am-u-sm-12 am-u-md-6">
+      <div class="am-btn-toolbar">
+        <div class="am-btn-group am-btn-group-xs">
+          <a href="/menus/new" class="am-btn am-btn-default am-btn-success">新增</a>
+        </div>
+      </div>
+    </div>
+    <div class="am-u-sm-12 am-u-md-3">
+      <div class="am-form-group"></div>
+    </div>
+    <div class="am-u-sm-12 am-u-md-3"></div>
+  </div>
+  <!-- 操作列表，如：新增（new）END -->
+
+  <!-- Table -->
+  <div class="am-g">
+    <div class="am-u-sm-12">
+      <table class="am-table am-table-striped am-table-hover table-main" id="list">
+        <thead>
+          <tr>
+            <td>序号</td>
+
+            <!-- 表头 -->
+            <td class="table-title">菜单名</td>
+            <td class="table-title">URL</td>
+            <td class="table-title">是否可用</td>
+            <!-- 表头 END -->
+
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(menu, index) in menus">
+            <td>{{index+1}}</td>
+            <td>{{menu.name}}</td>
+            <td>{{menu.url}}</td>
+            <td>{{menu.usable}}</td>
+            <td>
+              <a v-bind:href="'/menus/'+menu.id+'/edit'" class="am-btn am-btn-default am-btn-xs am-text-secondary">编辑</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Table end -->
+
+</div>
+<div class="tpl-alert"></div>
+
+<script type="text/javascript">
+  new Vue({
+    el: '#list',
+    data: {
+      menus: null
+    },
+    mounted () {
+      axios
+        .get('/web/v1/menus/list')
+        .then(response => (
+          this.menus = response.data.menus
+         ))
+        .catch(function (error) { // 请求失败处理
+          console.log(error);
+        });
+    }
+  })
+</script>
+
 

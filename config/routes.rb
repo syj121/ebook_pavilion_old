@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  mount Web::Api => '/web'
+
   scope "(:locale)", locale: RouteLanguage do
     resources :books
   end

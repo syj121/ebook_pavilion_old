@@ -1459,10 +1459,10 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     background: #fff;
 }
 
-.am-table-striped>tbody>tr:nth-child(odd)>td,
+/*.am-table-striped>tbody>tr:nth-child(odd)>td,
 .am-table-striped>tbody>tr:nth-child(odd)>th {
     background: #f3f4f6;
-}
+}*/
 
 .am-selected-btn.am-btn-default {
     border-radius: 3px;

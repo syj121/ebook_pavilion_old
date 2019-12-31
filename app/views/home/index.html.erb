@@ -1,0 +1,22 @@
+<div id="app">
+  <div>{{message}}</div>
+</div>
+    
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: "您好"
+  },
+  mounted () {
+  	axios
+  	.get("/web/v1/home/index")
+  	.then(response => (
+  		this.message = response.data.message
+  	))
+  	.catch(function (error){
+  		console.log(error)
+  	})
+  }
+})
+</script>

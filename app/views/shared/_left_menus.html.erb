@@ -1,53 +1,69 @@
 <div class="tpl-left-nav-title">Amaze UI 列表</div>
 
 <div class="tpl-left-nav-list">
-  <ul>
+  <ul id="left_menus">
     <li class="tpl-left-nav-item">
-      <a href="<%= root_path%>" class="nav-link active">
+      <a href="/" class="nav-link active">
         <i class=""></i>
         <span>首页</span>
       </a>
     </li>
 
-    <% menu_block = lambda do  |menus|%>
-      <% return nil if menus.blank?%>
-      <% menus.each do |menu|%>
-        <% if menu.children.present?%>
-          <li class="tpl-left-nav-item">
-            <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-              <i class="am-icon-wpforms"></i>
-              <span><%= menu.name%></span>
-              <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-            </a>
-            <ul class="tpl-left-nav-sub-menu">
-              <li><% menu_block.call(menu.descendants)%></li>
-            </ul>
-          </li>
-        <% elsif menu.root? %>
-          <li class="tpl-left-nav-item">
-            <a href="<%= menu.url %>" class="nav-link tpl-left-nav-link-list">
-              <i class=""></i>
-              <span><%= menu.name%></span>
-            </a>
-          </li>
-        <% else%>
-          <a href="<%= menu.url%>">
-            <i class="am-icon-angle-right"></i>
-            <span><%= menu.name%></span>
-            <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-          </a>
-        <% end -%>
-      <% end -%>
-    <% end -%>
+    <!-- 左侧菜单开始 -->
+    <template v-for="menu in menus">
+<!--       <li class="tpl-left-nav-item">
+        <a v-bind:href=" menu.url" class="nav-link tpl-left-nav-link-list">
+          <i class=""></i>
+          <span>{{menu.name}}</span>
+        </a>
+      </li> -->
 
-    <% menu_block.call(Menu.roots)%>
+    </template>
+    <!-- 左侧菜单结束 -->
 
     <li class="tpl-left-nav-item">
-      <%= link_to new_user_session_path, class: "nav-link tpl-left-nav-link-list" do %>
-        <i class=""></i>
-        <span>登录</span>
-      <% end -%>
+      <a href="" class="nav-link tpl-left-nav-link-list"><i></i><span>登录</span></a>
     </li>
 
   </ul>
 </div>
+
+<script type="text/javascript">
+
+  //父节点
+  // var root_node = Vue.component('root-item', {
+  //   props: ['node'],
+  //   template: "<li class='tpl-left-nav-item'><a href='javascript:;' class='nav-link tpl-left-nav-link-list'><i class='am-icon-wpforms'></i><span>{{menu.name}}</span><i class='am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right'></i></a><ul class='tpl-left-nav-sub-menu'><children-item v-bind:root_node='node'></children-item></ul></li>"
+  // })
+
+  //子节点
+  // var children = Vue.component('children-item', {
+  //   props: ['node'],
+  //   template: "<a :href='menu.url'><i class='am-icon-angle-right'></i><span>{{menu.name}}</span><i class='am-icon-star tpl-left-nav-content-ico am-fr am-margin-right'></i></a>"
+  // })
+
+  new Vue({
+    el: '#left_menus',
+    data: {
+      menus: null
+    },
+    methods: {
+      add_node: function(node){
+        alert(node)
+      }
+    },
+    mounted () {
+      axios
+        .get('/web/v1/t_partials/menus')
+        .then(response => (
+          this.menus = response.data.menus
+         ))
+        .then(function(){
+          add_node("1")
+        })
+        .catch(function (error) { // 请求失败处理
+          console.log(error);
+        });
+    }
+  })
+</script>

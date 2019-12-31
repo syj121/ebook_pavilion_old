@@ -30,6 +30,9 @@ module EbookPavilion
 
     #设置编码格式
     config.encoding = "utf-8"
+    # 接口API
+    config.paths.add 'app/api', glob: '**/*.rb'
+    config.autoload_paths += Dir["#{Rails.root}/app/api/*"]
 
   end
 end
